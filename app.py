@@ -1,9 +1,14 @@
 from ultralytics import YOLO
+import supervision as sv
 import cv2
 
-# Load a model
-model = YOLO("yolov8n.yaml")  # build a new model from scratch
-model = YOLO("yolov8n.pt")  # load a pretrained model (recommended for training)
+# Load the model
+model = YOLO("yolov8n.pt") 
 
 # Use the model
-result = model.track(source =0, show = True, stream = True)
+for result  in model.track(source =0, show = False, stream = True):
+
+    frame = result.orig_img
+    detections = sv.Detections.from_yolov8(result)
+
+    cv2.imshow("yolov8", frame)

@@ -1,6 +1,6 @@
 # Welcome to YOLOv8 tracking app
 
-The goal of this project is to test new <a href="https://github.com/ultralytics/ultralytics">YOLOv8</a> features.
+This is a simple tracking application using native <a href="https://github.com/ultralytics/ultralytics">YOLOv8</a>  tracking features.
 
 ## 📦 installation
 

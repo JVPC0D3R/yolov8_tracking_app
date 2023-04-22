@@ -10,10 +10,11 @@ from modules.view import draw_trasnparent_bbox, draw_label, resize_img
 model = YOLO("yolov8n.pt")
 
 # Init tracker manager
-tm = TrackerManager()
+tm = TrackerManager(max_missing_frames = 10)
 
 # Use the model
-for result  in model.track(source =0, show = False, stream = True):
+for result  in model.track(source = 0, show = False, stream = True):
+
 
     # Get frame
     frame = result.orig_img
@@ -47,7 +48,7 @@ for result  in model.track(source =0, show = False, stream = True):
         tm.update(track_outputs)
 
     # Show resized frame
-    cv2.imshow("yolov8", resize_img(frame, 50))
+    cv2.imshow("yolov8", resize_img(frame, 100))
 
     if cv2.waitKey(25) & 0xFF == ord('q'):
         break

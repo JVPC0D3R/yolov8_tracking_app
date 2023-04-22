@@ -1,7 +1,7 @@
 class TrackerManager:
-    def __init__(self):
+    def __init__(self, max_missing_frames):
         self.tracks = {}
-        self.max_missing_frames = 10
+        self.max_frames = max_missing_frames
 
     def update(self, tracker_outputs):
         new_tracks = {}
@@ -15,7 +15,7 @@ class TrackerManager:
         for track_id in self.tracks:
             if track_id not in new_tracks:
                 missing_frames = self.tracks[track_id]['missing_frames'] + 1
-                if missing_frames <= self.max_missing_frames:
+                if missing_frames <= self.max_frames:
                     new_tracks[track_id] = {'bbox': self.tracks[track_id]['bbox'], 'missing_frames': missing_frames}
 
         self.tracks = new_tracks

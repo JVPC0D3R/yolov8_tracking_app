@@ -3,7 +3,7 @@
 <p align="justify">
 This is a simple tracking application using native <a href="https://github.com/ultralytics/ultralytics">YOLOv8</a>  tracking features and custom ones.
 
-## 🤠 traffic manager
+## 🤠 tracker manager
 
 YOLOv8 outputs usefull information about the tracks freatured in the present frame, but no information about the past, that is why I implemented a <a href='https://github.com/JVPRUGBIER/yolov8_tracking_app/blob/main/utils/tracker_manager.py'> Tracker Manager</a>. 
 
